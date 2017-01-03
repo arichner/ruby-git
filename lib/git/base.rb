@@ -328,6 +328,14 @@ module Git
 
       self.lib.push(remote, branch, opts)
     end
+
+    # performs the git merge-base command to determine the most recent common ancestor for two commits
+    #
+    #
+
+    def merge_base(commit1, commit2, *other_commits)
+      Git::Object.new self, self.lib.merge_base(commit1, commit2, *other_commits)
+    end
     
     # merges one or more branches into the current working branch
     #
